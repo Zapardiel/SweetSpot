@@ -74,10 +74,13 @@ public class FloatingBubbleService extends Service {
                             initialTouchY = event.getRawY();
 
                             //show preferences on double tap
-                            /*if ((touchLastTime > 50) && (touchLastTime < 300) && (initialTouchX == event.getX() + initialX)) {
+                            if ((touchLastTime > 50) && (touchLastTime < 200) && (initialTouchX == event.getX() + initialX)) {
                                 touchNumber++;
                                 Log.e("*****SWEET-SPOT******", "Double Touch " + touchNumber);
-                                if (touchNumber >= 10) {
+                                if (touchNumber >= 2) {
+                                    Intent intent = new Intent(FloatingBubbleService.this, SweetSpotActivity.class);
+                                    startActivity(intent);
+
                                     windowManager.removeView(floatingBubble);
                                     stopSelf();
                                     Log.e("*****SWEET-SPOT******", "Service Stopped ");
@@ -85,13 +88,12 @@ public class FloatingBubbleService extends Service {
                                     myToast.show();
                                     Log.e("*****SWEET-SPOT******", "Leaving SweetSpot...");
                                     SimulateScanKey(false);
-
                                     return false;
                                 }
 
                             } else {
                                 touchNumber = 0;
-                            }*/
+                            }
 
                             //bolEstado= !bolEstado;
                             SimulateScanKey(true);
